@@ -26,7 +26,6 @@ _____________________________
 
 ________________________________________________________________________________________________
 
-
 ## 📦 Installation & Setup
 
 ### Prerequisites
@@ -39,13 +38,17 @@ ________________________________________________________________________________
    git clone <repository-url>
    cd vue-star
 
-2. **Install dependencies**
+2. **.env**
+   VITE_APP_GAMES_API_URL=https://stage.whgstage.com/front-end-test/games.php
+   VITE_APP_JACKPOTS_API_URL=https://stage.whgstage.com/front-end-test/jackpots.php
+
+3. **Install dependencies**
    npm install
 
-3. **Start the development server**
+4. **Start the development server**
    npm run dev
 
-4. **Open your browser**
+5. **Open your browser**
    Navigate to `http://localhost:5173` (or the port shown in the terminal)
 
 ### Available Scripts

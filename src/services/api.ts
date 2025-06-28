@@ -1,5 +1,4 @@
 import axios, { type AxiosResponse, type AxiosError } from 'axios'
-import { API_CONFIG } from '@/constants'
 
 export interface Game {
   id: string
@@ -26,8 +25,7 @@ export class ApiError extends Error {
 
 class ApiService {
   private axiosInstance = axios.create({
-    baseURL: API_CONFIG.BASE_URL,
-    timeout: API_CONFIG.TIMEOUT,
+    timeout: 10000,
     headers: {
       'Content-Type': 'application/json',
     },
@@ -58,7 +56,7 @@ class ApiService {
   async fetchGames(): Promise<Game[]> {
     try {
       const response: AxiosResponse<Game[]> = await this.axiosInstance.get(
-        API_CONFIG.ENDPOINTS.GAMES
+        import.meta.env.VITE_APP_GAMES_API_URL
       )
       return response.data
     } catch (error) {
@@ -69,7 +67,7 @@ class ApiService {
   async fetchJackpots(): Promise<Jackpot[]> {
     try {
       const response: AxiosResponse<Jackpot[]> = await this.axiosInstance.get(
-        API_CONFIG.ENDPOINTS.JACKPOTS
+        import.meta.env.VITE_APP_JACKPOTS_API_URL
       )
       return response.data
     } catch (error) {
